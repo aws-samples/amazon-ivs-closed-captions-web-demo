@@ -1,0 +1,98 @@
+:root {
+  --border-radius: 10px;
+}
+
+.stream-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+/* handles the 16:9 aspect ratio */
+.aspect-16x9 {
+  position: relative;
+  padding-top: 56.25%;
+  height: 0;
+  overflow: hidden;
+}
+
+.player {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.video-el {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.player-ui {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.player-ui-captions {
+  padding: 5px;
+  display: flex;
+  flex: 1;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.player-ui-captions__text {
+  padding: 7px 9px;
+  width: 100%;
+  max-width: 290px;
+  background-color: #000;
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+  font-weight: bold;
+}
+
+.player-ui-controls {
+  padding: 5px 10px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
+  display: flex;
+  flex-direction: row;
+}
+
+.player-ui-controls__actions {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+}
+
+.player-ui-controls__actions--right {
+  justify-content: flex-end;
+}
+
+.player-ui-button {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  cursor: pointer;
+}
+
+@media (max-width: 767px) {
+  .player-ui-captions__text {
+    font-size: 12px;
+  }
+
+  .player-ui-button {
+    margin: 0;
+    padding: 5px;
+  }
+}
