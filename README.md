@@ -2,6 +2,8 @@
 
 A demo web application intended as an educational tool for demonstrating how you can implement closed captions with the Amazon IVS PlayerSDK.
 
+<img src="closed-captions-demo.png" alt="Amazon IVS Closed Captions demo" />
+
 **This project is intended for education purposes only and not for production usage.**
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
