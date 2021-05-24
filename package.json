@@ -11,7 +11,10 @@
     "react-scripts": "4.0.3"
   },
   "resolutions": {
-    "node-forge": "^0.10.0"
+    "node-forge": "^0.10.0",
+    "is-svg": ">=4.2.2",
+    "dns-packet": ">=5.2.2",
+    "browserslist": ">=4.16.5"
   },
   "scripts": {
     "start": "react-scripts start",
