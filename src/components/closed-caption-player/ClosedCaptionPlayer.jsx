@@ -64,7 +64,7 @@ const ClosedCaptionPlayer = (props) => {
       player.current.removeEventListener(ENDED, onStateChange);
 
       player.current.removeEventListener(ERROR, onError);
-      player.current.addEventListener(TEXT_CUE, onTextCue);
+      player.current.removeEventListener(TEXT_CUE, onTextCue);
     };
   }, [IVSPlayer, isPlayerSupported, streamUrl]);
 
