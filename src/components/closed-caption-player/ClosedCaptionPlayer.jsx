@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { isIOS } from 'react-device-detect';
 
 import Placeholder from './placeholder';
 import PlayerControls from './PlayerControls';
@@ -24,7 +25,7 @@ const ClosedCaptionPlayer = (props) => {
 
     if (!isPlayerSupported) {
       console.warn(
-        'The current browser does not support the Amazon IVS player.',
+        'The current browser does not support the Amazon IVS player.'
       );
 
       return;
@@ -77,27 +78,37 @@ const ClosedCaptionPlayer = (props) => {
   }
 
   return (
-    <div className="stream-wrapper">
-      <div className="aspect-16x9">
+    <div className='stream-wrapper'>
+      <div className='aspect-16x9'>
         <Placeholder loading={loading} />
 
-        <div className="player">
-          <video ref={videoEl} className="video-el" playsInline muted></video>
+        <div className='player'>
+          <video
+            ref={videoEl}
+            className='video-el'
+            playsInline
+            muted
+            controls={isIOS}
+          ></video>
 
-          <div className="player-ui">
-            <div className="player-ui-captions">
-              {showCaptions && captionText && <p className="player-ui-captions__text">{captionText}</p>}
+          {!isIOS && (
+            <div className='player-ui'>
+              <div className='player-ui-captions'>
+                {showCaptions && captionText && (
+                  <p className='player-ui-captions__text'>{captionText}</p>
+                )}
+              </div>
+
+              {player.current && (
+                <PlayerControls
+                  player={player.current}
+                  hasCaptionTrack={captionText !== undefined}
+                  showCaptions={showCaptions}
+                  toggleCaption={toggleCaption}
+                />
+              )}
             </div>
-
-            {player.current && (
-              <PlayerControls
-                player={player.current}
-                hasCaptionTrack={captionText !== undefined}
-                showCaptions={showCaptions}
-                toggleCaption={toggleCaption}
-              />
-            )}
-          </div>
+          )}
         </div>
       </div>
     </div>
